@@ -91,7 +91,7 @@
 					<c:choose>
 					<c:when test="${not empty sessionScope.userLoggedIn}">					
 						<form:form method="POST" modelAttribute="commentForm" id="form-comment"  action="/submit/newComment" role="form" >
-							<form:input type="hidden" id="post_id" name="post_id" path="post_id" value="${post.id}" />
+							<form:input type="hidden" id="post_id" name="post_id" path="post_id" value="${post.idPost}" />
 							<div class="input-group">					
 							<form:input type="text" class="form-control input-sm chat-input"
 								placeholder="Escribe tu comentario aquí" path="contenido" /> 
