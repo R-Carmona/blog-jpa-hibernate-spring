@@ -2,6 +2,7 @@ package com.rubencarmona.blog.modelo;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.persistence.Column;
@@ -15,14 +16,19 @@ import javax.persistence.OneToMany;
 import org.hibernate.annotations.ColumnTransformer;
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 
 
 @Entity
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class Usuario {
@@ -58,9 +64,11 @@ public class Usuario {
 	@ColumnTransformer(write=" MD5(?) ")
 	private String password;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.EAGER)
 	private Set<Comentario> comentarios = new HashSet<>();
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "autor", fetch = FetchType.EAGER)
 	private Set<Post> posts = new HashSet<>();
 	

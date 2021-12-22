@@ -17,12 +17,18 @@ import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CreationTimestamp;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Data
+@Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Post {
@@ -60,6 +66,7 @@ public class Post {
 	@ManyToOne
 	private Usuario autor;
 	
+	@JsonIgnore
 	@OneToMany(mappedBy = "post")
 	private List<Comentario> comentarios = new ArrayList<>();
 
