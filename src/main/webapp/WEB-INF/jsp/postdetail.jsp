@@ -113,14 +113,14 @@
 						<c:if test="${not empty post.comentarios }">
 							<c:forEach items="${post.comentarios}" var="comment">
 							<li class="ui-state-default">
-								<strong class="pull-left primary-font">${comment.user.nombre}</strong>
+								<strong class="pull-left primary-font">${comment.usuario.nombre}</strong>
 								<small class="pull-right text-muted"> 
 									<span class="glyphicon glyphicon-time"></span>
-									<fmt:formatDate pattern="dd/MM/yyyy" value="${comment.date}" /> a las 
-									<fmt:formatDate pattern="H:m:s" value="${comment.date}" />
+									<fmt:formatDate pattern="dd/MM/yyyy" value="${comment.fecha}" /> a las 
+									<fmt:formatDate pattern="H:m:s" value="${comment.fecha}" />
 								</small>
 								<br/>
-								${comment.text}
+								${comment.texto}
 								<br/>
 							</li>						
 							</c:forEach>
